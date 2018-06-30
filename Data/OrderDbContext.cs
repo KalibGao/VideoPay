@@ -19,7 +19,7 @@ namespace VideoPay.Data
 
             modelBuilder.Entity<Order>().HasIndex(o => o.OrderNo).IsUnique();
             modelBuilder.Entity<Order>().Property(o => o.CreateTime).HasDefaultValueSql("GETDATE()");
-            modelBuilder.Entity<Order>().Property(o => o.LastUpdateTime).HasDefaultValue("GETDATE()");
+            modelBuilder.Entity<Order>().Property(o => o.LastUpdateTime).HasDefaultValueSql("GETDATE()");
         }
     }
 }

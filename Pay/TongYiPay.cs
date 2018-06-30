@@ -131,7 +131,7 @@ namespace VideoPay.Pay
                 signValue.Append($"{keyValuePair.Key}={keyValuePair.Value}&");
             }
             signValue.Append($"key={Key}");
-            Console.WriteLine(signValue.ToString());
+                        
             return EncryptHelper.MD5Encypt(signValue.ToString(), "X2");
         }
 

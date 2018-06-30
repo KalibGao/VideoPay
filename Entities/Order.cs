@@ -23,11 +23,11 @@ namespace VideoPay.Entities
 
         // auto generate on add
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string CreateTime { get; set; }
+        public DateTime CreateTime { get; set; }
 
         // auto generate on add or update
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public string LastUpdateTime { get; set; }
+        public DateTime LastUpdateTime { get; set; }
 
         [StringLength(128)]
         public string ItemName { get; set; }

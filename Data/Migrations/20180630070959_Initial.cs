@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace VideoPay.Migrations
+namespace VideoPay.Data.Migrations
 {
     public partial class Initial : Migration
     {
@@ -18,8 +19,8 @@ namespace VideoPay.Migrations
                     PayType = table.Column<string>(maxLength: 128, nullable: true),
                     HasPaid = table.Column<bool>(nullable: false),
                     SN = table.Column<string>(maxLength: 128, nullable: true),
-                    CreateTime = table.Column<string>(nullable: true),
-                    LastUpdateTime = table.Column<string>(nullable: true),
+                    CreateTime = table.Column<DateTime>(nullable: false, defaultValueSql: "GETDATE()"),
+                    LastUpdateTime = table.Column<DateTime>(nullable: false, defaultValueSql: "GETDATE()"),
                     ItemName = table.Column<string>(maxLength: 128, nullable: true),
                     Remark = table.Column<string>(nullable: true)
                 },
