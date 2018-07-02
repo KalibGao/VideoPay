@@ -44,7 +44,7 @@ namespace VideoPay.Controllers
         public IActionResult Download(string fileName)
         {
             // string filePath = $"{_env.WebRootPath}\\packages\\{fileName}";
-            string filePath = Path.Combine(_env.WebRootPath, "packages") + fileName;
+            string filePath = Path.Combine(_env.WebRootPath, "packages", fileName) ;
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
 
