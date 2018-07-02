@@ -44,7 +44,7 @@ namespace VideoPay.Controllers
         public IActionResult Download(string fileName)
         {
             // string filePath = $"{_env.WebRootPath}\\packages\\{fileName}";
-            string filePath = Path.Combine(_env.WebRootPath,"packages") + fileName;
+            string filePath = Path.Combine(_env.WebRootPath, "packages") + fileName;
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
 
@@ -67,6 +67,10 @@ namespace VideoPay.Controllers
             if (fileName.Contains("\\"))
             {
                 fileName = fileName.Substring(fileName.LastIndexOf("\\") + 1);
+            }
+            else if (fileName.Contains("/"))
+            {
+                fileName = fileName.Substring(fileName.LastIndexOf("/") + 1);
             }
             return fileName;
         }
