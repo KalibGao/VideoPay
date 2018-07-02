@@ -1,0 +1,29 @@
+﻿@model FileListViewModel
+@{ 
+    ViewData["Title"] = "Index";
+}
+ 
+
+<div>
+    <a href="/files/upload" class="btn btn-primary">File Upload</a>
+</div>
+
+ 
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>文件名</th>
+            <th>下载地址</th>            
+        </tr>
+    </thead>
+    <tbody>
+         @foreach (var keyValuePair in Model.Files)
+         {
+        <tr>
+            <td>@keyValuePair.Key</td>
+            <td><a href="@keyValuePair.Value">@keyValuePair.Value</a></td>
+        </tr>
+         }
+    </tbody>
+</table>
