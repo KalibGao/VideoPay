@@ -20,7 +20,8 @@ namespace VideoPay.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            string path = $"{_env.WebRootPath}\\packages\\";
+            // string path = $"{_env.WebRootPath}\\packages\\";
+            string path = Path.Combine(_env.WebRootPath, "packages");
             var files = Directory.GetFiles(path);
 
             var fileListViewModel = new FileListViewModel();
@@ -42,7 +43,8 @@ namespace VideoPay.Controllers
         [HttpGet("download")]
         public IActionResult Download(string fileName)
         {
-            string filePath = $"{_env.WebRootPath}\\packages\\{fileName}";
+            // string filePath = $"{_env.WebRootPath}\\packages\\{fileName}";
+            string filePath = Path.Combine(_env.WebRootPath,"packages") + fileName;
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
 
